@@ -1,13 +1,19 @@
 import { Footer, Navbar } from './Components'
-import { About, ErrorPage, Home, Login, News, Contact, Teams, Register, Service,JoinUs } from './Pages/index'
+import { About, ErrorPage, Home, Login, News, Contact, Teams, Register, Service,JoinUs, Blog, BlogEditor, AllBlogs } from './Pages/index'
 import { Routes, Route } from 'react-router-dom'
+import {BlogPost} from "./Context/context"
 import './App.css'
+import { useState } from 'react'
+import EditBlog from './Pages/private/EditBlogList/EditBlog'
 
 
 function App() {
 
+  const [blog,setBlog]=useState("blog unfetched")
+
   return (
     <>
+      <BlogPost.Provider value={{blog,setBlog}}>
     <div className='navbar_box'>
 
       <Navbar  />
@@ -28,8 +34,15 @@ function App() {
         <Route path='/services' element={<Service />} />
         <Route path='/teams' element={<Teams />} />
         <Route path='/joinus' element={<JoinUs />} />
+        <Route path='/articles/:pid' element={<Blog/>}/>
+        <Route path='/articles/editor' element={<BlogEditor/>}/>
+        <Route path='/articles' element={<AllBlogs/>}/>
+        {/* .......................private routes ..........................*/}
+        <Route path='/articles/edit-article' element={<EditBlog/>}/>
+
       </Routes>
       <Footer />
+      </BlogPost.Provider>
     </>
   )
 }

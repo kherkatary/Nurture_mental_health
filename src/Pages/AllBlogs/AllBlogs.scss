@@ -1,0 +1,34 @@
+.allBlogsBody{
+  min-height: 100vh;
+  height: fit-content;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px,1fr));
+  
+
+  .unavailable{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .unHead{
+      font-size: 2rem
+    }
+  }
+
+  .blogsCard{
+    border: 2px solid black;
+    margin: 1rem;
+    .readBtn{
+      margin: auto;
+      background-color: rgb(16, 16, 174);
+      color: white;
+    }
+
+    &:hover{
+      cursor: pointer;
+      background-color: rgb(251, 251, 251);
+    }
+  }
+
+
+}

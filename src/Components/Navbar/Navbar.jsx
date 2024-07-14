@@ -20,6 +20,7 @@ const Navbar = () => {
                <li><Link to="/about">About Us</Link></li>
                <li><Link to="/services">Services</Link></li>
                <li><Link to="/joinus">Join Us</Link></li>
+               <li><Link to="/articles">Articles</Link></li>
 
                {/* <li> <Link to="/news">Blogs</Link></li> */}
                {/* <li><Link to="/contact">Contact</Link></li> */}
@@ -40,6 +41,7 @@ const Navbar = () => {
                <li><Link to="/about">About Us</Link></li>
                <li><Link to="/services">Services</Link></li>
                <li><Link to="/joinus">Join Us</Link></li>
+               <li><Link to="/articles">Articles</Link></li>
 
                {/* <li> <Link to="/news">Blogs</Link></li> */}
                {/* <li><Link to="/contact">Contact</Link></li> */}

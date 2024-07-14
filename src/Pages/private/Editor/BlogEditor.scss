@@ -1,0 +1,87 @@
+.EditorContainer{
+  padding: 1rem;
+
+  .postBtn{
+    margin: auto;
+    padding: 1rem;
+    justify-content: end;
+    .pb{
+      font-size: large;
+      padding: 1rem;
+      width: 10rem;
+      cursor: pointer;
+      background-color: rgb(46, 46, 237);
+      color: white;
+      border-radius: 0.3rem;
+    }
+  }
+
+  .title{
+    margin: 1rem;
+
+    .titleInput{
+      border: 1px solid black;
+      width: 100%;
+      font-size: 1.5rem;
+      padding: 1rem 0.5rem;
+    }
+  }
+
+  .JDE{ 
+    border: 2px solid black;
+     min-height: 10rem; 
+     height: fit-content;
+     margin: auto;
+      padding: 1rem 1rem;
+      width: 70%; 
+
+      @media screen and (max-width:600px) {
+
+        width: 100%; 
+        padding: 1rem 1rem;
+      }
+    }
+
+    .author{
+      border: 1px solid black;
+      padding: 0.5rem;
+      margin-left: 1rem;
+      width: 50%;
+
+    }
+
+    .preview{
+
+      border: 2px solid black;
+      width: 70%; 
+      margin: 4rem auto;
+      @media screen and (max-width:600px) {
+
+        width: 100%; 
+      }
+
+      .blogPreview{
+  
+       min-height: 10rem; 
+       height: fit-content;
+        padding: 1rem 2rem;
+  
+      }
+  
+      .titlePreview{
+        text-align: left;
+        color: rgb(46, 46, 116);
+        padding: 1rem 2rem;
+        // width: 70%;
+
+      }
+    }
+
+
+}
+
+.centerEle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
