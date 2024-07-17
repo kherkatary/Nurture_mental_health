@@ -1,13 +1,21 @@
 import { Footer, Navbar } from './Components'
-import { About, ErrorPage, Home, Login, News, Contact, Teams, Register, Service,JoinUs } from './Pages/index'
+import { About, ErrorPage, Home, Login, News, Contact, Teams, Register, Service,JoinUs, Blog, BlogEditor, AllBlogs } from './Pages/index'
 import { Routes, Route } from 'react-router-dom'
+import { AuthProvider } from './Context/context'
 import './App.css'
+import EditBlog from './Pages/private/EditBlogList/EditBlog'
+import { getAnalytics, logEvent } from "firebase/analytics";
+import Private from './Pages/private/Private'
 
 
 function App() {
 
+  const analytics = getAnalytics();
+  logEvent(analytics, 'notification_received');
+
   return (
     <>
+      <AuthProvider>
     <div className='navbar_box'>
 
       <Navbar  />
@@ -28,8 +36,19 @@ function App() {
         <Route path='/services' element={<Service />} />
         <Route path='/teams' element={<Teams />} />
         <Route path='/joinus' element={<JoinUs />} />
+        <Route path='/articles/:pid' element={<Blog/>}/>
+        <Route path='/articles' element={<AllBlogs/>}/>
+        {/* .......................private routes ..........................*/}
+        <Route path='/articles/editor' element={<Private>
+          <BlogEditor />
+        </Private>}/>
+        <Route path='/articles/edit-articles' element={<Private>
+          <EditBlog />
+        </Private>}/>
+
       </Routes>
       <Footer />
+      </AuthProvider>
     </>
   )
 }

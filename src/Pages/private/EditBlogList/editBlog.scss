@@ -1,0 +1,36 @@
+.editBlog{
+
+    .heading{
+        text-align: center;
+        margin: 2rem ;
+    }
+
+    .headingBtn{
+        padding: 0.3rem 1rem;
+        margin: 0 0.5rem;
+        border-radius: 0.2236rem;
+        background-color: #E04932;
+        color: white;
+        cursor: pointer;
+        
+    }
+
+    .blogList{
+        margin: auto;
+        padding: 1rem;
+        width: 50%;
+        @media screen and (max-width:600px) {
+            width: 95%;            
+        }
+    }
+
+
+    .btns{
+        .action{
+            padding: 0.5rem 1rem;
+            margin: 0 0.25rem;
+            color: white;
+            cursor: pointer;
+        }
+    }
+}

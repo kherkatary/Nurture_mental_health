@@ -1,0 +1,67 @@
+.blogContainer{
+
+  .blogListHeading{
+    text-align: center;
+    padding: 1rem 0;
+  }
+
+
+  .blogsList{
+    min-height: 100vh;
+    
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px,1fr));
+
+
+      .blogCard{
+        height: fit-content;
+        border: 1px solid rgb(221, 221, 221);
+        border-radius: 0.3rem;
+         margin: 0.5rem;
+         padding:0.5rem 0.5rem;
+  
+    
+        &:hover{
+          cursor: pointer;
+          background-color: rgb(251, 251, 251);
+        }
+    
+        .cover {
+          width: 100%;
+          border-radius: 0.3rem 0.3rem 0 0;
+          aspect-ratio: 16 / 9;
+          object-fit: cover;
+        
+          @media screen and (max-width: 600px) {
+            aspect-ratio: 25 / 9;
+          }
+        }
+        
+        
+        .title{
+          font-size: 1rem;
+        }
+        .author{
+          color: rgb(175, 175, 175);
+          font-weight: 500;
+        }
+      }
+    
+    
+  
+    .unavailable{
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .unHead{
+        font-size: 2rem
+      }
+    }
+  
+    
+  
+  
+  }
+
+}

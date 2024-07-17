@@ -21,5 +21,7 @@ import Appointment_img_icon from "./Appointment_img-icon/Appointment_img_icon";
 
 import FixedContact from "./FixedContact/FixedContact";
 import Youtube from "./Youtube/Youtube";
+import Loader from "./Loader/Loader";
 
-export { Navbar, Footer, Button,Testimonial, NewsPreview, ContactUsFooter,Appointment_img_icon, TileDesc, Quote, AboutInfo, Cards, TeamCardHolder, ScrollToTop, LoginForm,IntroToAdd,MedicaIntro,Contentinfo,FixedContact,Youtube}
+
+export { Navbar, Footer, Button,Testimonial, NewsPreview, ContactUsFooter,Appointment_img_icon, TileDesc, Quote, AboutInfo, Cards, TeamCardHolder, ScrollToTop, LoginForm,IntroToAdd,MedicaIntro,Contentinfo,FixedContact,Youtube, Loader}

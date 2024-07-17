@@ -2,7 +2,47 @@ import React, { useEffect, useState } from 'react'
 import { Icon } from '@iconify/react'
 import './LoginForm.scss'
 import { Link } from 'react-router-dom';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { firebaseApp } from '../../../firebase.config';
+import { useNavigate,useLocation } from 'react-router-dom';
+import { useAuth } from '../../Context/context';
 const LoginForm = ({ type }) => {
+    const { login, isAuthenticated } = useAuth();
+    const location = useLocation();
+    const navigate = useNavigate();
+  
+    // Check if the user is already authenticated
+    useEffect(() => {
+      if (isAuthenticated) {
+        const from = location.state?.from?.pathname || '/';
+        navigate(from, { replace: true });
+      }
+    }, [isAuthenticated, location, navigate]);
+    
+
+      const auth = getAuth(firebaseApp);
+      const Login=async(e)=>{
+        e.preventDefault();
+        try{
+          await signInWithEmailAndPassword(auth, email, pass)
+          .then((userCredential) => {
+            // Signed in 
+            const user =  userCredential.user;
+            login(user?.accessToken)
+            navigate('/articles/edit-articles')
+            
+            // console.log(user?.accessToken)
+          })
+          .catch((error) => {
+            console.log(error);
+            alert("Error")
+            // const errorMessage = error.message;
+          });
+    
+        }catch(err){
+          throw console.log(err)
+        }
+      }
 
     useEffect(() => {
         checkType()
@@ -19,7 +59,10 @@ const LoginForm = ({ type }) => {
     }
 
 
-
+    // if(isAuthenticated) return <div className="logOutMenu">
+    //   <button className='lgMenuBtn' onClick={()=>{logout}}>Logout</button>
+    //   <button className='lgMenuBtn' onClick={()=>{navigate("/articles/edit-articles")}}>Edit Blogs</button>
+    //  </div>
 
     return (
         <div className='loginForm'>
@@ -48,7 +91,7 @@ const LoginForm = ({ type }) => {
                     <input className='password' value={pass} onChange={(e) => { setPass(e.target.value) }} type="password" placeholder='Password' />
                 </div>
                 <div className="btn">
-                    <button className='submitBtn'>{type}</button>
+                    <button className='submitBtn' onClick={type!=='Register'?Login:null}>{type}</button>
                     <div>
                         <a className='hotLink' href="https://www.youtube.com/watch?v=8d0f9G7lmzg">Forgot password?</a>
                         {
@@ -62,10 +105,10 @@ const LoginForm = ({ type }) => {
 
 
             </div>
-            <div className="oAuth centerElements">
+            {/* <div className="oAuth centerElements">
                 <Icon className='oAuthIcons' icon="flat-color-icons:google" color="blue" width="40" />
                 <Icon className='oAuthIcons' icon="logos:facebook" color="blue" width="35" />
-            </div>
+            </div> */}
         </div>
     )
 }

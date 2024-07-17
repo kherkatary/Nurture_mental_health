@@ -3,7 +3,6 @@ import { Player } from '@lottiefiles/react-lottie-player'
 import loginAnimation from '../../assets/loginAnimation.json'
 import { LoginForm } from '../../Components'
 
-
 const Login = () => {
 
   return (
